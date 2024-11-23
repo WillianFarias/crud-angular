@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, first, take, tap } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 
 import { Course } from '../model/course';
 
@@ -9,7 +9,7 @@ import { Course } from '../model/course';
 })
 export class CoursesService {
 
-  private readonly API = '/assets/acursos.json';
+  private readonly API = '/assets/cursos.json';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -19,10 +19,10 @@ export class CoursesService {
       pipe(
         //indica que estou interessado apenas no primeiro retorno do servidor / primeira respota, sendo assim ele encerra a conexao do xjs com esse servidor
         first(),
-        delay(5000),
+        // delay(5000),
         //indica que assim que o servidor me devolver minha requisicao eu encerro a conexao
         //take(1),
-        tap(courses => console.log(courses))
+        // tap(courses => console.log(courses))
       );
   }
 }

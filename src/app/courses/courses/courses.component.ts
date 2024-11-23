@@ -35,11 +35,11 @@ export class CoursesComponent implements OnInit {
 
   onError(msgError: string) {
     console.log('Abrindo diálogo de erro:', msgError);
-    // if (this.dialog.openDialogs.length === 0) {
+    if (this.dialog.openDialogs.length === 0) {
       this.dialog.open(ErrorDialogComponent, {
         data: msgError
       });
-    // }
+    }
   }
 
 }
